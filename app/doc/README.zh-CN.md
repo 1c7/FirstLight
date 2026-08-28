@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="../Packaging/icon_source_1024.png" width="128" height="128" alt="FirstLight Logo">
+</p>
+
 # 醒后见光 (FirstLight)
 
 [English](../../README.md)

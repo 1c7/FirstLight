@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="app/Packaging/icon_source_1024.png" width="128" height="128" alt="FirstLight Logo">
+</p>
+
 # FirstLight
 
 [中文说明](app/doc/README.zh-CN.md)
