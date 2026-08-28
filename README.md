@@ -1,6 +1,6 @@
 # FirstLight
 
-[中文说明](README.zh-CN.md)
+[中文说明](app/doc/README.zh-CN.md)
 
 A tiny macOS menu bar app for people correcting a delayed sleep phase
 (going to bed and waking up very late) by getting bright light shortly
@@ -11,11 +11,11 @@ yourself.
 
 ## Screenshots
 
-![FirstLight in English: light progress](doc/img/en-1.jpg)
+![FirstLight in English: light progress](app/doc/img/en-1.jpg)
 
-![FirstLight in English: live illuminance](doc/img/en-2.jpg)
+![FirstLight in English: live illuminance](app/doc/img/en-2.jpg)
 
-![FirstLight in English: why morning light matters](doc/img/en-3.jpg)
+![FirstLight in English: why morning light matters](app/doc/img/en-3.jpg)
 
 
 ## Install
@@ -42,3 +42,8 @@ back to discovering any IOKit service that exposes a numeric `CurrentLux`
 value. Other models may work but have not yet been physically verified. If the
 sensor is unavailable, open **Debug States → Copy Compatibility Diagnostics**
 and include the copied report with an issue.
+
+## Source and License
+
+Application source, tests, packaging scripts, and development documentation live
+in [`app/`](app/). FirstLight is available under the [MIT License](app/LICENSE).

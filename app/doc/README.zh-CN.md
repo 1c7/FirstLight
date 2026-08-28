@@ -1,6 +1,6 @@
 # 产品名称：醒后见光 (FirstLight)
 
-[English](README.md)
+[English](../../README.md)
 
 ## 对你有什么价值？（适合什么人用）
 如果你晚睡晚起，想改成早睡早起，方法是醒后尽快去户外见光很重要。可以调整你的生物钟。
@@ -8,11 +8,11 @@
 
 ## 软件安装后长这样
 
-![FirstLight 中文界面：光照进度](doc/img/cn-1.jpg)
+![FirstLight 中文界面：光照进度](img/cn-1.jpg)
 
-![FirstLight 中文界面：实时照度](doc/img/cn-2.jpg)
+![FirstLight 中文界面：实时照度](img/cn-2.jpg)
 
-![FirstLight 中文界面：为什么见光](doc/img/cn-3.jpg)
+![FirstLight 中文界面：为什么见光](img/cn-3.jpg)
 
 ## 安装
 
@@ -37,5 +37,6 @@ FirstLight 需要 macOS 13 或更高版本，以及一台能读取内置环境�
 
 
 ## 备注
-- [更多文档](doc/README.md)  
+- [更多文档](README.md)
+- [MIT 开源许可证](../LICENSE)
 - 本软件上线时间：2026 年 8 月 28 号
