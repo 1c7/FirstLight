@@ -9,7 +9,13 @@ time and tells you whether today's light has been strong enough, for
 long enough, to count -- so you don't have to guess or do the math
 yourself.
 
-![FirstLight app screenshot](doc/img/showcase.jpg)
+## Screenshots
+
+![FirstLight in English: light progress](doc/img/en-1.jpg)
+
+![FirstLight in English: live illuminance](doc/img/en-2.jpg)
+
+![FirstLight in English: why morning light matters](doc/img/en-3.jpg)
 
 
 ## Install

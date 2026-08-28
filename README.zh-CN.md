@@ -7,8 +7,12 @@
 本软件是 macOS App，读取 MacBook 内置的光线传感器，告诉你当前是多少 Lux。
 
 ## 软件安装后长这样
-![FirstLight app screenshot](doc/img/showcase.jpg)
 
+![FirstLight 中文界面：光照进度](doc/img/cn-1.jpg)
+
+![FirstLight 中文界面：实时照度](doc/img/cn-2.jpg)
+
+![FirstLight 中文界面：为什么见光](doc/img/cn-3.jpg)
 
 ## 安装
 
