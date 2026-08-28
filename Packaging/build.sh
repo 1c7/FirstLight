@@ -1,6 +1,6 @@
 #!/bin/bash
-# Builds LightDose in release mode and assembles it into a proper
-# LightDose.app bundle, then ad-hoc code-signs it so Gatekeeper doesn't
+# Builds FirstLight in release mode and assembles it into a proper
+# FirstLight.app bundle, then ad-hoc code-signs it so Gatekeeper doesn't
 # block launching it on this machine.
 #
 # No sandbox entitlements are applied on purpose: this app reads the
@@ -15,7 +15,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-APP_NAME="LightDose"
+APP_NAME="FirstLight"
 BUILD_DIR="$ROOT_DIR/.build/release"
 APP_BUNDLE="$ROOT_DIR/$APP_NAME.app"
 

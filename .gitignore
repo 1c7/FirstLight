@@ -1,6 +1,6 @@
 .build/
-LightDose.app/
-LightDose.dmg
+FirstLight.app/
+FirstLight.dmg
 .swiftpm/
 *.xcodeproj
 .DS_Store

@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "LightDose",
+    name: "FirstLight",
     platforms: [.macOS(.v13)],
     targets: [
         .executableTarget(
-            name: "LightDose",
-            path: "Sources/LightDose",
+            name: "FirstLight",
+            path: "Sources/FirstLight",
             linkerSettings: [
                 .linkedFramework("IOKit"),
                 .linkedFramework("AppKit"),

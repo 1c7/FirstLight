@@ -1,4 +1,4 @@
-# LightDose (light-for-better-sleep-mac)
+# FirstLight (light-for-better-sleep-mac)
 
 [中文说明](README.zh-CN.md)
 
@@ -19,8 +19,8 @@ Personal tool, MIT licensed. Not on the App Store (see
 
 ## Install
 
-1. [Download LightDose.dmg](https://github.com/1c7/light-for-better-sleep-mac/releases/latest)
-2. Open it, drag `LightDose.app` into the `Applications` shortcut
+1. [Download FirstLight.dmg](https://github.com/1c7/light-for-better-sleep-mac/releases/latest)
+2. Open it, drag `FirstLight.app` into the `Applications` shortcut
 3. First launch only: macOS will say "cannot verify the developer" --
    right-click the app and choose **Open** once to get past it
 

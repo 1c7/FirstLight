@@ -1,6 +1,6 @@
 #!/bin/bash
-# Builds LightDose.app (via build.sh) and packages it into a distributable
-# LightDose.dmg -- a disk image with the .app plus a shortcut to
+# Builds FirstLight.app (via build.sh) and packages it into a distributable
+# FirstLight.dmg -- a disk image with the .app plus a shortcut to
 # /Applications, the standard drag-to-install experience on macOS.
 #
 # This does NOT make the app notarized or Developer-ID signed -- it's
@@ -14,7 +14,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-APP_NAME="LightDose"
+APP_NAME="FirstLight"
 APP_BUNDLE="$ROOT_DIR/$APP_NAME.app"
 DMG_PATH="$ROOT_DIR/$APP_NAME.dmg"
 STAGING_DIR="$(mktemp -d)"
