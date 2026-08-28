@@ -23,6 +23,10 @@
 	<!-- Menu-bar-only app: no Dock icon, no app switcher / Cmd-Tab entry. -->
 	<key>LSUIElement</key>
 	<true/>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>MIT licensed.</string>
 </dict>
