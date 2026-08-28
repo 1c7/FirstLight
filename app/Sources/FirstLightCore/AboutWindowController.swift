@@ -39,7 +39,7 @@ struct AboutContentView: View {
     @ObservedObject var model: AboutViewModel
 
     private var versionString: String {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0.1"
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0.2"
         return "v\(version)"
     }
 
