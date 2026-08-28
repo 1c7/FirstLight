@@ -7,6 +7,7 @@ public final class AppDelegate: NSObject, NSApplicationDelegate {
     private let store = DailyProgressStore()
     private var mainWindowController: MainWindowController?
     private var settingsWindowController: SettingsWindowController?
+    private var aboutWindowController: AboutWindowController?
     private var debugWindowController: DebugWindowController?
     private var debugSimulation: DebugSimulation?
 
@@ -146,10 +147,18 @@ public final class AppDelegate: NSObject, NSApplicationDelegate {
     // NSMenu, which keeps the primary interaction as a one-click window toggle.
     private func showContextMenu() {
         let menu = NSMenu()
+        let aboutItem = NSMenuItem(
+            title: L10n.text("关于 醒后见光…", "About FirstLight…"), action: #selector(showAbout), keyEquivalent: "")
+        aboutItem.target = self
+        menu.addItem(aboutItem)
         let settingsItem = NSMenuItem(
             title: L10n.text("设置…", "Settings…"), action: #selector(showSettings), keyEquivalent: ",")
         settingsItem.target = self
         menu.addItem(settingsItem)
+        let githubItem = NSMenuItem(
+            title: L10n.text("访问 GitHub 仓库…", "GitHub Repository…"), action: #selector(openGitHub), keyEquivalent: "")
+        githubItem.target = self
+        menu.addItem(githubItem)
         let debugItem = NSMenuItem(
             title: L10n.text("调试状态…", "Debug States…"), action: #selector(showDebug), keyEquivalent: "d")
         debugItem.target = self
@@ -197,6 +206,23 @@ public final class AppDelegate: NSObject, NSApplicationDelegate {
         return false
     }
 
+    @objc private func showAbout() {
+        let controller = aboutWindowController ?? {
+            let c = AboutWindowController()
+            aboutWindowController = c
+            return c
+        }()
+        controller.localize()
+        NSApp.activate(ignoringOtherApps: true)
+        controller.window?.makeKeyAndOrderFront(nil)
+    }
+
+    @objc private func openGitHub() {
+        if let url = URL(string: "https://github.com/1c7/FirstLight") {
+            NSWorkspace.shared.open(url)
+        }
+    }
+
     @objc private func showSettings() {
         let controller = settingsWindowController ?? {
             let c = SettingsWindowController()
@@ -228,6 +254,7 @@ public final class AppDelegate: NSObject, NSApplicationDelegate {
         numberFormatter.locale = L10n.locale
         mainWindowController?.localize()
         settingsWindowController?.localize()
+        aboutWindowController?.localize()
         debugWindowController?.localize()
         tick()
     }

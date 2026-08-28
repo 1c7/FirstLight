@@ -9,7 +9,7 @@ final class SettingsWindowController: NSWindowController {
 
     convenience init() {
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 420, height: 230),
+            contentRect: NSRect(x: 0, y: 0, width: 440, height: 250),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
@@ -27,7 +27,7 @@ final class SettingsWindowController: NSWindowController {
         ))
         hosting.sizingOptions = []
         contentViewController = hosting
-        window.setContentSize(NSSize(width: 420, height: 230))
+        window.setContentSize(NSSize(width: 440, height: 250))
         localize()
     }
 
@@ -86,15 +86,32 @@ struct SettingsContentView: View {
                 .id(model.localeRevision)
                 .onChange(of: model.selectedLanguage) { onSelectLanguage($0) }
             }
-            .padding(.top, 12)
+            .padding(.top, 8)
+
+            Divider()
+                .padding(.top, 10)
+
+            HStack(spacing: 6) {
+                Text(L10n.text("作者：郑诚（Cheng Zheng）", "Author: Cheng Zheng"))
+                    .font(.system(size: 11))
+                    .foregroundColor(Color(nsColor: .secondaryLabelColor))
+                Text("·")
+                    .foregroundColor(Color(nsColor: .tertiaryLabelColor))
+                Link("chengzheng.dev@gmail.com", destination: URL(string: "mailto:chengzheng.dev@gmail.com")!)
+                    .font(.system(size: 11))
+                Spacer()
+                Link(L10n.text("GitHub 仓库 ↗", "GitHub Repo ↗"), destination: URL(string: "https://github.com/1c7/FirstLight")!)
+                    .font(.system(size: 11))
+            }
+            .padding(.top, 2)
         }
         .padding(.horizontal, 28)
-        .padding(.top, 30)
+        .padding(.top, 24)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
 #Preview {
     SettingsContentView(model: SettingsViewModel(), onSelectLanguage: { _ in })
-        .frame(width: 420, height: 230)
+        .frame(width: 440, height: 250)
 }
