@@ -35,15 +35,6 @@ Requires **macOS 13 or later** on a Mac with a readable built-in ambient-light s
 
 *Sensor access relies on the readable but undocumented `CurrentLux` IOKit property. If you test FirstLight on other Mac models, please feel free to report your results! If the sensor is unavailable on your device, use **Debug States → Copy Compatibility Diagnostics** and submit an issue.*
 
-## Architecture & Docs
-
-Detailed design and technical documentation are available in [`app/doc/`](app/doc/):
-- [Competitor Research](app/doc/0-同类竞品调研.md)
-- [Sensor Reading Principle](app/doc/1-传感器读取原理.md)
-- [Light Dose Formula](app/doc/2-剂量计算公式.md)
-- [Architecture & Build Guide](app/doc/3-项目结构与开发说明.md)
-- [Localization & UI Architecture](app/doc/4-本地化与界面架构.md)
-
 ## License
 
 FirstLight is open-sourced under the [MIT License](app/LICENSE).
