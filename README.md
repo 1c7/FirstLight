@@ -9,10 +9,8 @@ time and tells you whether today's light has been strong enough, for
 long enough, to count -- so you don't have to guess or do the math
 yourself.
 
-Desktop companion to the Android app
-[light-for-better-sleep](https://github.com/1c7/light-for-better-sleep).
+![FirstLight app screenshot](doc/img/showcase.jpg)
 
-Personal tool, MIT licensed.
 
 ## Install
 
@@ -23,5 +21,3 @@ Personal tool, MIT licensed.
 
 Left-click the lux number in the menu bar to open the main window;
 right-click it to quit.
-
-More docs (Chinese): [doc/README.md](doc/README.md)

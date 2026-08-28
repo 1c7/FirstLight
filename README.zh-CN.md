@@ -1,14 +1,13 @@
-# 醒后见光 (FirstLight)
+# 产品名称：醒后见光 (FirstLight)
 
 [English](README.md)
 
-## 对你有什么价值？
+## 对你有什么价值？（适合什么人用）
 如果你晚睡晚起，想改成早睡早起，方法是醒后尽快去户外见光很重要。可以调整你的生物钟。
-
 本软件是 macOS App，读取 MacBook 内置的光线传感器，告诉你当前是多少 Lux。
 
-
-## 截图演示（待补充）
+## 软件安装后长这样
+![FirstLight app screenshot](doc/img/showcase.jpg)
 
 
 ## 安装
@@ -19,4 +18,7 @@
 
 左键点菜单栏的 lux 数字打开主窗口；右键点退出。
 
-更多文档：[doc/README.md](doc/README.md)
+
+## 备注
+- [更多文档](doc/README.md)  
+- 本软件上线时间：2026 年 8 月 28 号
