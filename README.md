@@ -8,11 +8,11 @@ It reads your MacBook's built-in light sensor in real time and calculates whethe
 
 ## Screenshots
 
-<p align="center">
-  <img src="app/doc/img/en-1.jpg" width="30%" alt="Light Progress" />
-  <img src="app/doc/img/en-2.jpg" width="30%" alt="Live Illuminance" />
-  <img src="app/doc/img/en-3.jpg" width="30%" alt="Why Light Matters" />
-</p>
+![Light Progress](app/doc/img/en-1.jpg)
+
+![Live Illuminance](app/doc/img/en-2.jpg)
+
+![Why Light Matters](app/doc/img/en-3.jpg)
 
 ## Install
 

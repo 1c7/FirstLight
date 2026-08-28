@@ -8,11 +8,11 @@
 
 ## 界面预览
 
-<p align="center">
-  <img src="img/cn-1.jpg" width="30%" alt="光照进度" />
-  <img src="img/cn-2.jpg" width="30%" alt="实时照度" />
-  <img src="img/cn-3.jpg" width="30%" alt="为什么见光" />
-</p>
+![光照进度](img/cn-1.jpg)
+
+![实时照度](img/cn-2.jpg)
+
+![为什么见光](img/cn-3.jpg)
 
 ## 安装方法
 
