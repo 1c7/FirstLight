@@ -5,14 +5,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     private var timer: Timer?
     private let store = DailyProgressStore()
-
-    // Menu items we update in place on every tick.
-    private let luxItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
-    private let progressItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
-    private let statusLineItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
-    private let adviceItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    private var mainWindowController: MainWindowController?
 
     private var lastTickDate: Date?
+    private var lastLux: Double?
     private var accumulatedMinutes: Double = 0
     private var currentDayKey: String = DailyProgressStore.dateKey(Date())
 
@@ -32,18 +28,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.title = "-- lux"
-
-        let menu = NSMenu()
-        for item in [luxItem, progressItem, statusLineItem, adviceItem] {
-            item.isEnabled = false
-            menu.addItem(item)
-        }
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "退出", action: #selector(quit), keyEquivalent: "q"))
-        for item in menu.items {
-            item.target = self
-        }
-        statusItem.menu = menu
+        // No fixed `.menu` here on purpose -- left-click opens the main
+        // window, right-click shows a small quit-only menu. See
+        // statusItemClicked(_:).
+        statusItem.button?.target = self
+        statusItem.button?.action = #selector(statusItemClicked(_:))
+        statusItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
 
         // Polling is simple and robust for a foreground-use tool; no need
         // for a raw HID event-callback stream.
@@ -67,11 +57,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         guard let lux = AmbientLightSensor.readLux() else {
             statusItem.button?.title = "传感器不可用"
-            luxItem.title = "无法读取光线传感器"
-            progressItem.title = ""
-            statusLineItem.title = ""
-            adviceItem.title = ""
+            lastLux = nil
             lastTickDate = nil
+            mainWindowController?.update(lux: nil, accumulatedMinutes: accumulatedMinutes, formatter: numberFormatter)
             return
         }
 
@@ -89,6 +77,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         lastTickDate = now
+        lastLux = lux
 
         updateUI(lux: lux)
     }
@@ -96,27 +85,52 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func updateUI(lux: Double) {
         let luxRounded = numberFormatter.string(from: NSNumber(value: lux)) ?? "\(Int(lux))"
         statusItem.button?.title = "\(luxRounded) lux"
+        mainWindowController?.update(lux: lux, accumulatedMinutes: accumulatedMinutes, formatter: numberFormatter)
+    }
 
-        luxItem.title = "当前光照：\(luxRounded) lux"
-
-        let target = DoseCalculator.targetEffectiveMinutes
-        let acc = accumulatedMinutes
-        progressItem.title = String(format: "今日有效分钟：%.1f / %.1f 分钟", acc, target)
-
-        let achieved = DoseCalculator.isAchieved(acc)
-        statusLineItem.title = achieved ? "今日目标已达成 ✓" : "尚未达标"
-
-        if achieved {
-            adviceItem.title = "今天的晨光已经晒够啦"
-        } else if DoseCalculator.isCurrentLightUseful(lux) {
-            if let remaining = DoseCalculator.remainingRealMinutes(currentLux: lux, accumulatedEffectiveMinutes: acc) {
-                adviceItem.title = String(format: "按当前光照，还需约 %.0f 分钟", remaining.rounded(.up))
-            } else {
-                adviceItem.title = ""
-            }
+    @objc private func statusItemClicked(_ sender: Any?) {
+        guard let event = NSApp.currentEvent else { return }
+        if event.type == .rightMouseUp {
+            showContextMenu()
         } else {
-            adviceItem.title = "光线太暗,户外找个开阔地方"
+            toggleMainWindow()
         }
+    }
+
+    // Right-click only: a plain quit item. Left-click never goes through
+    // NSMenu at all, which is what lets a single click toggle the window
+    // instead of always popping a dropdown.
+    private func showContextMenu() {
+        let menu = NSMenu()
+        let quitItem = NSMenuItem(title: "退出", action: #selector(quit), keyEquivalent: "q")
+        quitItem.target = self
+        menu.addItem(quitItem)
+        statusItem.menu = menu
+        statusItem.button?.performClick(nil)
+        statusItem.menu = nil
+    }
+
+    private func toggleMainWindow() {
+        let controller = mainWindowController ?? {
+            let c = MainWindowController()
+            mainWindowController = c
+            return c
+        }()
+        guard let window = controller.window else { return }
+        if window.isVisible {
+            window.orderOut(nil)
+        } else {
+            controller.update(lux: lastLux, accumulatedMinutes: accumulatedMinutes, formatter: numberFormatter)
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+        }
+    }
+
+    // Accessory (menu-bar-only) app: closing the main window must not
+    // quit the background process -- the status item needs to keep
+    // polling and accumulating dose even with no window open.
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return false
     }
 
     @objc private func quit() {

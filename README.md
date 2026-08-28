@@ -1,5 +1,7 @@
 # LightDose (light-for-better-sleep-mac)
 
+[中文说明](README.zh-CN.md)
+
 A tiny macOS menu bar app that reads the MacBook's built-in ambient
 light sensor in real time and tracks whether you've gotten enough
 outdoor morning light exposure today.
@@ -16,14 +18,21 @@ without re-reading the caveats below.
 
 ## What it shows
 
-Click the lux number in the menu bar to see:
+The menu bar title always shows the live lux reading. **Left-click** it
+to open (or close) a proper on-screen window with a bigger view of the
+same data:
 - current lux reading
-- today's accumulated "effective minutes" vs. the daily target
+- today's accumulated "effective minutes" vs. the daily target, as a
+  progress bar
 - achieved / not-achieved
 - if light is currently useful (>= 500 lux): an estimate of how many
   more minutes you need at the current brightness
 - if light is too dim (< 500 lux): "光线太暗,户外找个开阔地方" instead
   of a countdown
+
+**Right-click** the menu bar item for a small menu with just "退出"
+(quit). Closing the window (red button) only hides it -- the app keeps
+running in the menu bar and accumulating today's dose either way.
 
 Progress is stored locally in
 `~/Library/Application Support/light-for-better-sleep-mac/daily_effective_minutes.json`,
@@ -101,7 +110,7 @@ needs to run unsandboxed to read the IOKit sensor property; if you ever
 add an entitlements file (e.g. from an Xcode template with App Sandbox
 turned on), sensor access may silently break.
 
-To quit: click the lux number in the menu bar, then "退出".
+To quit: right-click the lux number in the menu bar, then "退出".
 
 ### Login item (optional, not set up)
 
@@ -115,11 +124,12 @@ wired up here.
 ```
 Package.swift
 Sources/LightDose/
-  main.swift               -- NSApplication bootstrap
-  AppDelegate.swift         -- NSStatusItem, menu, 2s polling timer
-  AmbientLightSensor.swift  -- IOKit lux reading (see caveats above)
-  DoseCalculator.swift      -- ported from dose_calculator.dart
-  DailyProgressStore.swift  -- local JSON persistence, keyed by date
+  main.swift                -- NSApplication bootstrap
+  AppDelegate.swift          -- NSStatusItem, click dispatch, 2s polling timer
+  MainWindowController.swift -- on-screen window (opened via left-click)
+  AmbientLightSensor.swift   -- IOKit lux reading (see caveats above)
+  DoseCalculator.swift       -- ported from dose_calculator.dart
+  DailyProgressStore.swift   -- local JSON persistence, keyed by date
 Packaging/
   Info.plist
   build.sh
