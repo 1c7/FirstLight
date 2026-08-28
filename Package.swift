@@ -21,5 +21,9 @@ let package = Package(
             dependencies: ["FirstLightCore"],
             path: "Sources/FirstLight"
         ),
+        .testTarget(
+            name: "FirstLightCoreTests",
+            dependencies: ["FirstLightCore"]
+        ),
     ]
 )

@@ -168,8 +168,6 @@ public final class AppDelegate: NSObject, NSApplicationDelegate {
     private func toggleMainWindow() {
         let controller = mainWindowController ?? {
             let c = MainWindowController()
-            c.onOpenSettings = { [weak self] in self?.showSettings() }
-            c.onOpenDebug = { [weak self] in self?.showDebug() }
             mainWindowController = c
             return c
         }()

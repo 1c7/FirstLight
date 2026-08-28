@@ -21,8 +21,7 @@ yourself.
 
 Left-click the lux number in the menu bar to open the main window.
 Right-click it for Settings, Debug States, or Quit. The app follows the
-macOS language by default and can be switched between English and Simplified
-Chinese in Settings.
+macOS language by default. Settings offers Follow System, Chinese, and English.
 
 ## Compatibility
 

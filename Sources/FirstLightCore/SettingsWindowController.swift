@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 
+/// 管理设置窗口及语言偏好的保存与全局刷新通知。
 final class SettingsWindowController: NSWindowController {
     var onLanguageChange: (() -> Void)?
 
@@ -17,7 +18,7 @@ final class SettingsWindowController: NSWindowController {
         window.isMovableByWindowBackground = true
         window.center()
         self.init(window: window)
-        // Fixed-size windows: don't let the SwiftUI content drive sizing.
+        // 固定尺寸窗口由 AppKit 决定大小，不让 SwiftUI 内容反向驱动窗口尺寸。
         let hosting = NSHostingController(rootView: SettingsContentView(
             model: model,
             onSelectLanguage: { [weak self] language in
@@ -37,8 +38,7 @@ final class SettingsWindowController: NSWindowController {
     }
 
     private func applyLanguage(_ language: AppLanguage) {
-        // Also fires when localize() syncs the selection back to the same
-        // value -- only a real switch should trigger a global re-localize.
+        // localize() 同步选中项时也会触发 onChange；只有真实切换才通知全局刷新。
         guard language != L10n.language else { return }
         L10n.language = language
         localize()
@@ -73,11 +73,17 @@ struct SettingsContentView: View {
                 Spacer()
                 Picker("", selection: $model.selectedLanguage) {
                     ForEach(AppLanguage.allCases, id: \.self) { language in
-                        Text(L10n.languageName(language)).tag(language)
+                        Text(L10n.languageName(
+                            language,
+                            displayedIn: model.selectedLanguage
+                        ))
+                        .tag(language)
                     }
                 }
                 .pickerStyle(.menu)
                 .frame(minWidth: 150)
+                // NSPopUpButton 会缓存 NSMenuItem；语言变化时重建控件才能同步选项标题。
+                .id(model.localeRevision)
                 .onChange(of: model.selectedLanguage) { onSelectLanguage($0) }
             }
             .padding(.top, 12)
