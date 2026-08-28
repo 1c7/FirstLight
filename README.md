@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/doc/img/logo.png" width="128" height="128" alt="FirstLight Logo">
+  <img src="app/doc/img/logo.png" width="300" alt="FirstLight Logo">
 </p>
 
 # FirstLight

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/logo.png" width="128" height="128" alt="FirstLight Logo">
+  <img src="img/logo.png" width="300" alt="FirstLight Logo">
 </p>
 
 # 醒后见光 (FirstLight)
