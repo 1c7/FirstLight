@@ -2,9 +2,9 @@
 
 [中文说明](app/doc/README.zh-CN.md)
 
-A tiny macOS menu bar app for people correcting a delayed sleep phase (going to bed and waking up very late) by getting bright light shortly after waking.
+A tiny macOS utility that lives in your menu bar and opens a dedicated dashboard window to track your morning light exposure in real time.
 
-It reads your MacBook's built-in light sensor in real time and calculates whether today's light exposure has been strong enough, for long enough, to reset your circadian rhythm — so you don't have to guess or do the math yourself.
+It reads your MacBook's built-in light sensor to calculate whether today's light exposure has been strong enough, for long enough, to reset your circadian rhythm — so you don't have to guess or do the math yourself.
 
 ## Screenshots
 
@@ -18,7 +18,7 @@ It reads your MacBook's built-in light sensor in real time and calculates whethe
 
 1. [Download FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest) and drag `FirstLight.app` into `Applications`.
 2. **First launch only**: Right-click the app and choose **Open** to bypass macOS Gatekeeper.
-3. **Left-click** the lux reading in the menu bar to open the dashboard; **right-click** for Settings, Debug States, or Quit. (Supports English & Chinese).
+3. **Left-click** the lux reading in the menu bar to open/hide the dashboard window; **right-click** for Settings, Debug States, or Quit. (Supports English & Chinese).
 
 ## Compatibility
 
