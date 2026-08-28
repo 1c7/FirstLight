@@ -1,4 +1,5 @@
 import AppKit
+import FirstLightCore
 
 let app = NSApplication.shared
 let delegate = AppDelegate()

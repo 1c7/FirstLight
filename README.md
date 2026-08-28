@@ -19,5 +19,21 @@ yourself.
 3. First launch only: macOS will say "cannot verify the developer" --
    right-click the app and choose **Open** once to get past it
 
-Left-click the lux number in the menu bar to open the main window;
-right-click it to quit.
+Left-click the lux number in the menu bar to open the main window.
+Right-click it for Settings, Debug States, or Quit. The app follows the
+macOS language by default and can be switched between English and Simplified
+Chinese in Settings.
+
+## Compatibility
+
+FirstLight requires macOS 13 or later and a Mac with a readable built-in
+ambient-light sensor. Confirmed working configuration:
+
+- MacBook Air (M2, 2022), model identifier `Mac14,2`
+
+Sensor access relies on the readable but undocumented `CurrentLux` IOKit
+property. The app first checks the driver found on the tested Mac, then falls
+back to discovering any IOKit service that exposes a numeric `CurrentLux`
+value. Other models may work but have not yet been physically verified. If the
+sensor is unavailable, open **Debug States → Copy Compatibility Diagnostics**
+and include the copied report with an issue.
