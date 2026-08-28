@@ -1,5 +1,11 @@
 .build/
 LightDose.app/
+LightDose.dmg
 .swiftpm/
 *.xcodeproj
 .DS_Store
+
+# Intermediate iconset PNGs -- regeneratable from Packaging/icon_source_1024.png.
+# The compiled Packaging/AppIcon.icns IS tracked, since build.sh copies it
+# directly rather than regenerating it from the iconset every build.
+Packaging/AppIcon.iconset/

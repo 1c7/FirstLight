@@ -16,12 +16,14 @@
 	<string>APPL</string>
 	<key>CFBundleExecutable</key>
 	<string>LightDose</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>13.0</string>
 	<!-- Menu-bar-only app: no Dock icon, no app switcher / Cmd-Tab entry. -->
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Personal tool, not for distribution.</string>
+	<string>MIT licensed.</string>
 </dict>
 </plist>

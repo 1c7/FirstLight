@@ -15,21 +15,20 @@ same dose target, same math. Meant to be used the same way -- take the
 MacBook outdoors to an unobstructed spot.
 
 Personal tool, MIT licensed. Not on the App Store (see
-[doc/3](doc/3-项目结构与开发说明.md) for why) -- build it yourself.
+[doc/3](doc/3-项目结构与开发说明.md) for why).
 
 ## Install
 
-Requires Xcode Command Line Tools.
-
-```sh
-git clone <this repo>
-cd light-for-better-sleep-mac
-./Packaging/build.sh
-open LightDose.app
-```
+1. [Download LightDose.dmg](https://github.com/1c7/light-for-better-sleep-mac/releases/latest)
+2. Open it, drag `LightDose.app` into the `Applications` shortcut
+3. First launch only: macOS will say "cannot verify the developer" --
+   right-click the app and choose **Open** once to get past it
 
 Left-click the lux number in the menu bar to open the main window;
 right-click it to quit.
+
+Want to build it from source instead? See
+[doc/3](doc/3-项目结构与开发说明.md).
 
 ## Docs
 
