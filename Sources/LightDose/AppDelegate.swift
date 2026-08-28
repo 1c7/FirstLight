@@ -36,9 +36,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
 
         // Polling is simple and robust for a foreground-use tool; no need
-        // for a raw HID event-callback stream.
-        tick() // populate immediately instead of waiting 2s for the first read
-        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
+        // for a raw HID event-callback stream. 0.25s matches the fastest
+        // real update interval observed empirically by probing
+        // CurrentLux at ~2ms resolution (min ~0.2s between genuine
+        // value changes) -- polling faster than that just re-reads the
+        // same cached value.
+        tick() // populate immediately instead of waiting 0.25s for the first read
+        timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
             self?.tick()
         }
     }
