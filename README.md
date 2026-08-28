@@ -22,7 +22,7 @@ It reads your MacBook's built-in light sensor to calculate whether today's light
 
 1. [Download FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest) and drag `FirstLight.app` into `Applications`.
 2. **First launch only**: Right-click the app and choose **Open** to bypass macOS Gatekeeper.
-3. **Left-click** the lux reading in the menu bar to open/hide the dashboard window; **right-click** for Settings, Debug States, or Quit. (Supports English & Chinese).
+3. **Left-click** the lux reading in the menu bar to open/hide the dashboard window; **right-click** for Settings, About, or Quit. (Supports English & Chinese).
 
 ## Compatibility
 

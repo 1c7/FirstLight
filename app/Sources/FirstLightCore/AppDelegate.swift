@@ -147,22 +147,14 @@ public final class AppDelegate: NSObject, NSApplicationDelegate {
     // NSMenu, which keeps the primary interaction as a one-click window toggle.
     private func showContextMenu() {
         let menu = NSMenu()
-        let aboutItem = NSMenuItem(
-            title: L10n.text("关于 醒后见光…", "About FirstLight…"), action: #selector(showAbout), keyEquivalent: "")
-        aboutItem.target = self
-        menu.addItem(aboutItem)
         let settingsItem = NSMenuItem(
             title: L10n.text("设置…", "Settings…"), action: #selector(showSettings), keyEquivalent: ",")
         settingsItem.target = self
         menu.addItem(settingsItem)
-        let githubItem = NSMenuItem(
-            title: L10n.text("访问 GitHub 仓库…", "GitHub Repository…"), action: #selector(openGitHub), keyEquivalent: "")
-        githubItem.target = self
-        menu.addItem(githubItem)
-        let debugItem = NSMenuItem(
-            title: L10n.text("调试状态…", "Debug States…"), action: #selector(showDebug), keyEquivalent: "d")
-        debugItem.target = self
-        menu.addItem(debugItem)
+        let aboutItem = NSMenuItem(
+            title: L10n.text("关于 醒后见光…", "About FirstLight…"), action: #selector(showAbout), keyEquivalent: "")
+        aboutItem.target = self
+        menu.addItem(aboutItem)
         menu.addItem(.separator())
         let quitItem = NSMenuItem(
             title: L10n.text("退出 FirstLight", "Quit FirstLight"),
