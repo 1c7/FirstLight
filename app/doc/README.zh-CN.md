@@ -14,17 +14,11 @@
 
 ![为什么见光](img/cn-3.jpg)
 
-## 安装方法
+## 安装与使用
 
-1. 前往 Release 页面 [下载 FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest)
-2. 打开磁盘映像，将 `FirstLight.app` 拖入 `Applications`（应用程序）文件夹。
-3. **首次启动**：如遇 macOS 提示“无法验证开发者”，请右键点击 App 并选择**“打开”**即可绕过安全拦截，后续双击即可直接运行。
-
-## 使用说明
-
-- **左键点击** 菜单栏的 Lux 照度数值：打开主进度窗口。
-- **右键点击** 菜单栏图标：呼出菜单（设置、调试状态、退出）。
-- **多语言**：默认跟随系统语言，也可在设置中手动切换为“中文”或“英文”。
+1. 前往 Release 页面 [下载 FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest)，打开并将 `FirstLight.app` 拖入 `Applications`（应用程序）文件夹。
+2. **首次启动**：右键点击 App 选**“打开”**绕过安全提示，后续直接双击即可运行。
+3. **左键点击** 菜单栏 Lux 数值打开主进度窗口；**右键点击** 呼出设置、调试与退出菜单（默认跟随系统语言，支持手动切换中英文）。
 
 ## 兼容性说明
 

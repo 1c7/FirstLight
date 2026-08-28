@@ -14,17 +14,11 @@ It reads your MacBook's built-in light sensor in real time and calculates whethe
 
 ![Why Light Matters](app/doc/img/en-3.jpg)
 
-## Install
+## Install & Usage
 
-1. [Download FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest)
-2. Open it, drag `FirstLight.app` into the `Applications` shortcut.
-3. **First launch only**: If macOS displays "cannot verify the developer", right-click the app and choose **Open** once to bypass Gatekeeper.
-
-## Usage
-
-- **Left-click** the lux reading in the menu bar to open the main dashboard.
-- **Right-click** for Settings, Debug States, or Quit.
-- Supports both English and Simplified Chinese (follows system language by default).
+1. [Download FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest) and drag `FirstLight.app` into `Applications`.
+2. **First launch only**: Right-click the app and choose **Open** to bypass macOS Gatekeeper.
+3. **Left-click** the lux reading in the menu bar to open the dashboard; **right-click** for Settings, Debug States, or Quit. (Supports English & Chinese).
 
 ## Compatibility
 
