@@ -13,7 +13,7 @@
 
 ## 安装
 
-1. [下载 FirstLight.dmg](https://github.com/1c7/light-for-better-sleep-mac/releases/latest)
+1. [下载 FirstLight.dmg](https://github.com/1c7/FirstLight/releases/latest)
 2. 打开磁盘映像，把 `FirstLight.app` 拖进 `Applications` 快捷方式
 3. 只有第一次打开会提示"无法验证开发者"——右键点 App 选"打开"绕过一次就好，以后正常双击打开
 

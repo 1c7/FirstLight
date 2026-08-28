@@ -12,7 +12,7 @@ final class DailyProgressStore {
         let fm = FileManager.default
         let appSupport = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? fm.homeDirectoryForCurrentUser.appendingPathComponent("Library/Application Support")
-        let dir = appSupport.appendingPathComponent("light-for-better-sleep-mac", isDirectory: true)
+        let dir = appSupport.appendingPathComponent("FirstLight", isDirectory: true)
         try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
         fileURL = dir.appendingPathComponent("daily_effective_minutes.json")
     }
