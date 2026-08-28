@@ -1,2 +1,3 @@
 CFBundleDisplayName = "醒后见光";
 CFBundleName = "醒后见光";
+NSHumanReadableCopyright = "实时测算晨光剂量，助你科学养成早睡早起好习惯。";

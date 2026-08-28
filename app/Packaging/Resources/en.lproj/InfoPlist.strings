@@ -1,2 +1,3 @@
 CFBundleDisplayName = "FirstLight";
 CFBundleName = "FirstLight";
+NSHumanReadableCopyright = "Real-time morning light tracking for a healthier sleep cycle.";

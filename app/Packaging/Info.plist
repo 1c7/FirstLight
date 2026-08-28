@@ -28,6 +28,6 @@
 	<key>LSHasLocalizedDisplayName</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>MIT licensed.</string>
+	<string>Real-time morning light tracking for a healthier sleep cycle.</string>
 </dict>
 </plist>
